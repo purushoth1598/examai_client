@@ -15,6 +15,12 @@ export default defineConfig(({ mode }) => ({
         secure: false,
         rewrite: () => '/gen', // rewrites "/api/exam" → "/gen"
       },
+    '/api/upload': {
+        target: 'https://my-backend-service-901790866904.europe-west2.run.app',
+        changeOrigin: true,
+        secure: false,
+        rewrite: path => path.replace(/^\/api\/upload/, '/upload'),
+      },
     }
   },
   plugins: [
